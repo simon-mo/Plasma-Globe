@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: plasma-server
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: gke-plasma-globe-default-pool-801866e9-3hxw
+  containers:
+  - image: simonmok/plasma
+    name: plasma-server
+    command: 
+      - "plasma_store"
+    args:
+      - "-s"
+      - "/tmp/plasma"
+      - "-m"
+      - "10000000"
+    volumeMounts:
+    - mountPath: /dev/shm
+      name: dshm
+    - mountPath: /tmp
+      name: temp
+  volumes:
+  - name: dshm
+    hostPath:
+      # directory location on host
+      path: /dev/shm
+      # this field is optional
+      type: Directory
+  - name: temp
+    hostPath:
+      path: /tmp
+      type: Directory
