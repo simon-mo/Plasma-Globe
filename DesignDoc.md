@@ -2,9 +2,9 @@ Design of Plasma Globe
 
 - Plasma Store on Kubernetes
 
-- [Daemonset](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) to initialize plasma store
+- [Daemonset](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) to initialize plasma store, plasma manager, and lean API server
 
-- use host path to mount shared memory across pods
+- Use host path to mount shared memory across pods
 
   - https://kubernetes.io/docs/concepts/storage/volumes/#hostpath
 
